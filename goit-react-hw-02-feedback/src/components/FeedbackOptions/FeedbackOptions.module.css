@@ -1,0 +1,21 @@
+.FeedbackControls {
+  margin-right: 10px;
+}
+
+.btn {
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  background: #fff;
+  text-transform: capitalize;
+}
+
+.btn:not(:last-child) {
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background-color: rgb(68, 143, 241);
+}
