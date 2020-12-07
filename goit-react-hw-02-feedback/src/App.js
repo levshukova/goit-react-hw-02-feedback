@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
-import s from './App.css';
 import Statistics from './components/Statistics/Statistics';
 import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
 import Section from './components/Section/Section';
-import Notification from './components/Notification/Notification';
 
 class App extends Component {
   static defaultProps = {
@@ -15,16 +13,19 @@ class App extends Component {
     neutral: this.props.initialValue,
     bad: this.props.initialValue,
   };
+
   handleFeedback = ({ target }) => {
     const type = target.dataset.action;
     this.setState(prevState => {
       return { [type]: prevState[type] + 1 };
     });
   };
+
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     return good + neutral + bad;
   };
+
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     const totalFeedbackCount = this.countTotalFeedback();
@@ -48,17 +49,13 @@ class App extends Component {
           />
         </Section>
         <Section title={'Statistics'}>
-          {good || neutral || bad ? (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={totalFeedbackCount}
-              positivePercentage={positiveFeedback}
-            />
-          ) : (
-            <Notification message="No feedback given" />
-          )}
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={totalFeedbackCount}
+            positivePercentage={positiveFeedback}
+          />
         </Section>
       </>
     );
